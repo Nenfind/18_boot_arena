@@ -44,6 +44,9 @@ class Person(GameObject):
 
     def set_things(self, things):
         self.thing_list = things
+        thing_defence = 0
+        thing_attack = 0
+        thing_life = 0
         for thing in things:
             thing_defence += thing.defence_percent
             thing_attack += thing.attack
@@ -52,6 +55,6 @@ class Person(GameObject):
         self.life = self.life + thing_life 
         self.attack = self.attack + thing_life
 
-    def take_damage(self):
-        damage = attack_damage - attack_damage * final_protection
-        self.life = hit_points - damage
+    def take_damage(self, attack_damage):
+        damage = attack_damage - attack_damage * self.defence_percent
+        self.life = self.life - damage
