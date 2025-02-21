@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 from models import Paladin, Warrior, Thing
 
 def main():
@@ -7,8 +7,13 @@ def main():
     fighters = {f'fighter{i}': Paladin() for i in range(paladin_count)}
     for i in range(warrior_count):
         fighters[f'fighter{i + paladin_count}'] = Warrior()
-    thing_count = randint(10, 40)
-    things = {i: Thing() for i in range(thing_count)}
+    for fighter in fighters.values():
+        things = [Thing() for i in range(randint(1, 4))]
+        fighter.set_things(things)
+    while fighters:
+        attacker = choice(list(fighters.values()))
+
+        fighters.popitem()
 
 if __name__ == '__main__':
     main()
