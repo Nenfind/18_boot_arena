@@ -1,15 +1,11 @@
 from random import choice, uniform, randint
 
 
-MIN_DEFENCE_PERCENT = uniform(0, 0.1)
-MIN_LIFE = 1
-MIN_ATTACK = 1
 NAME_FOR_PERSON_LIST = ['wolf', 'bear', 'dog', 'cat', 'capibara',
                         'fox', 'mice', 'elephant', 'giraffe', 'hippopotamus',
                         'rhinoceros', 'jackal', 'antelope', 'horse', 'raccoon',
                         'fly', 'mosquito', 'spider', 'butterfly', 'mite']
 NAME_FOR_THING_LIST = ['ring', 'jacket', 'throusers', 'hat', 'boots']
-MAX_COUNT_OF_THINGS = 4
 
 
 class GameObject():
