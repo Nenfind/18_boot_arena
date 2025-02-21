@@ -13,7 +13,7 @@ MAX_COUNT_OF_THINGS = 4
 
 
 class GameObject():
-    """Class that describes the base game object."""
+    """Class that describes the base Game Object."""
 
     def __init__(self, name, defence_percent, life, attack) -> None:
         self.name = name
@@ -23,7 +23,7 @@ class GameObject():
 
 
 class Thing(GameObject):
-    """Class that describes the thing."""
+    """Class that describes the Thing."""
 
     def __init__(self, name, defence_percent=MIN_DEFENCE_PERCENT, life, attack):
         self.name = name
@@ -33,14 +33,14 @@ class Thing(GameObject):
         
         
 class Person(GameObject):
-    """Class that describes the person."""
+    """Class that describes the Person."""
 
-    def __init__(self, name, defence_percent, life, attack, thing_list):
+    def __init__(self, name, defence_percent, life, attack, thing_list=[]):
         self.name = name
         self.defence_percent = defence_percent
         self.life = life
         self.attack = attack
-        self.thing_list = []
+        self.thing_list = thing_list
 
     def set_things(self, things):
         self.thing_list = things
@@ -58,3 +58,25 @@ class Person(GameObject):
     def take_damage(self, attack_damage):
         damage = attack_damage - attack_damage * self.defence_percent
         self.life = self.life - damage
+
+
+class Paladin(Person):
+    """Class that describes the Paladin."""
+
+    def __init__(self, name, defence_percent, life, attack, thing_list=[]):
+        self.name = name
+        self.defence_percent = 2 * defence_percent
+        self.life = 2 * life
+        self.attack = attack
+        self.thing_list = thing_list      
+
+
+class Warrior(Person):
+    """Class that describes the Warrior.""" 
+
+    def __init__(self, name, defence_percent, life, attack, thing_list=[]):
+        self.name = name
+        self.defence_percent = defence_percent
+        self.life = life
+        self.attack = 2 * attack
+        self.thing_list = thing_list  
