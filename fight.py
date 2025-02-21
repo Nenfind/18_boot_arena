@@ -2,6 +2,8 @@ from random import randint, choice
 from models import Paladin, Warrior, Thing
 
 def main():
+    """Body of a game"""
+
     paladin_count = randint(1, 10)
     warrior_count = 10 - paladin_count
     fighters = {f'fighter{i}': Paladin() for i in range(paladin_count)}
@@ -18,6 +20,7 @@ def main():
         defender.take_damage(attacker.attack())
         if defender.life >= 0:
             fighters.pop(defender)
+        print(f'{attacker} наносит удар по {defender} на {attacker.attack()} урона')
 
 
 if __name__ == '__main__':
