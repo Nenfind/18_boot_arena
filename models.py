@@ -25,7 +25,7 @@ class GameObject():
 class Thing(GameObject):
     """Class that describes the thing."""
 
-    def __init__(self, name, defence_percent, life, attack):
+    def __init__(self, name, defence_percent=MIN_DEFENCE_PERCENT, life, attack):
         self.name = name
         self.defence_percent = defence_percent
         self.life = life
@@ -43,6 +43,15 @@ class Person(GameObject):
         self.thing_list = []
 
     def set_things(self, things):
-        for _ in range(MAX_COUNT_OF_THINGS):
-            thing = choice(NAME_FOR_THING_LIST)
-            self.thing_list.append(thing)
+        self.thing_list = things
+        for thing in things:
+            thing_defence += thing.defence_percent
+            thing_attack += thing.attack
+            thing_life += thing.life
+        self.defence_percent = self.defence_percent + thing_defence 
+        self.life = self.life + thing_life 
+        self.attack = self.attack + thing_life
+
+    def take_damage(self):
+        damage = attack_damage - attack_damage * final_protection
+        self.life = hit_points - damage
