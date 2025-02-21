@@ -1,7 +1,7 @@
-from random import choice
+from random import choice, uniform
 
 
-MIN_DEFENCE_PERCENT = choice(range((1/100), (10/100)))
+MIN_DEFENCE_PERCENT = uniform(0, 0.1)
 MIN_LIFE = 1
 MIN_ATTACK = 1
 NAME_FOR_PERSON_LIST = ['wolf', 'bear', 'dog', 'cat', 'capibara',
