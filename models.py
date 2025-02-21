@@ -79,4 +79,5 @@ class Warrior(Person):
         self.defence_percent = defence_percent
         self.life = life
         self.attack = 2 * attack
-        self.thing_list = thing_list  
+        self.thing_list = thing_list
+       
