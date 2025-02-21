@@ -12,8 +12,13 @@ def main():
         fighter.set_things(things)
     while fighters:
         attacker = choice(list(fighters.values()))
+        defender = choice(list(fighters.values()))
+        while attacker == defender:
+            defender = choice(list(fighters.values()))
+        defender.take_damage(attacker.attack())
+        if defender.life >= 0:
+            fighters.pop(defender)
 
-        fighters.popitem()
 
 if __name__ == '__main__':
     main()
