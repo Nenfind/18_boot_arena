@@ -21,7 +21,7 @@ class GameObject():
         return randint(1, 100)
 
     def give_attack(self):
-        return randint(1, 100)
+        return randint(1, 20)
 
 
 class Thing(GameObject):
@@ -49,7 +49,6 @@ class Person(GameObject):
         self.name = self.give_name()
         self.defence_percent = self.give_defence()
         self.thing_list = []
-        self.attacker = None
 
     def give_name(self):
         return choice(NAME_FOR_PERSON_LIST)
