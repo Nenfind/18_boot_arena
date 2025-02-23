@@ -10,9 +10,6 @@ def main():
         things.append(thing)
     things = sorted(things, key=lambda thing: thing.defence_percent)
 
-    for thing in things:
-        print(f'{thing.name}: {thing.defence_percent}')
-
     fighters_number = 10
     fighters = []
     fighters_set = set()
@@ -23,9 +20,10 @@ def main():
         thing_number_per_figther = randint(1, 4)
         things_per_fighter = sample(things, k=thing_number_per_figther)
         fighter.set_things(things_per_fighter)
-        fighters_set.add(fighter.name)
-        if fighter.name in fighters_set:
+        
+        if fighter.name not in fighters_set:
             fighters.append(fighter)
+        fighters_set.add(fighter.name)
 
     while len(fighters) > 1:
         opponents = sample(fighters, k=2)
