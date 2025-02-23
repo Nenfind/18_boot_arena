@@ -8,6 +8,10 @@ def main():
     for _ in range(things_number):
         thing = Thing()
         things.append(thing)
+    things = sorted(things, key=lambda thing: thing.defence_percent)
+
+    for thing in things:
+        print(f'{thing.name}: {thing.defence_percent}')
 
     fighters_number = 10
     fighters = []
